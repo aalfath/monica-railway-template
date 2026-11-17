@@ -1,0 +1,15 @@
+#!/bin/bash
+# Runs after the image's entrypoint has migrated the database (its name starts
+# with "apache", so the entrypoint treats it as the web server command).
+set -Eeo pipefail
+
+echo >&2
+# Create the owner account on an empty database, so the first visitor of a
+# fresh public deploy can't register and claim the instance.
+php /usr/local/bin/railway-owner.php
+
+# Scheduler (reminders, "stay in touch" mails, cleanup) every minute, using the
+# image's www-data crontab.
+busybox crond -b -l 8 -L /proc/1/fd/1
+
+exec apache2-foreground
