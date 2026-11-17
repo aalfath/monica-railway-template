@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/monica-1?utm_medium=integration&utm_source=button&utm_campaign=monica)
+
 # Monica on Railway
 
 A Railway template for [Monica](https://www.monicahq.com) **4.1.2**, the open-source personal relationship manager (personal CRM): contacts, relationships, notes, activities, reminders, gifts, debts, journal entries, documents and photos, with CardDAV/CalDAV sync and an API.
